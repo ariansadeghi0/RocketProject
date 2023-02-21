@@ -1,0 +1,457 @@
+behaviors:
+  RocketBehavior:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512  #changed from 1024 to 512
+      buffer_size: 204800  #changed from 10240 to 204800
+      learning_rate: 0.0002 #changed from 0.0003 to 0.0001
+      learning_rate_schedule: linear #changed to constant
+      beta: 0.005
+      epsilon: 0.1  #changed from 0.2 to 0.1
+      lambd: 0.95
+      num_epoch: 3
+    network_settings:
+      normalize: false
+      hidden_units: 256 #changed from 128 to 256
+      num_layers: 2
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1
+      gail:
+        gamma: 0.99
+        strength: 0
+        demo_path: Demos\LandRocketDemo1.demo
+    time_horizon: 512  #changed from 64 to 512
+    keep_checkpoints: 1000 #changed from 5 to 1000
+    checkpoint_interval: 100000 #changed from 500000 to 100000
+    max_steps: 20000000
+    summary_freq: 50000
+    threaded: true
+# environment_parameters:
+#   lessonNum:
+#     curriculum:
+#       - name: Lesson0
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 0
+#       - name: Lesson1
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 1
+#       - name: Lesson2
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 2
+#       - name: Lesson3
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 3
+#       - name: Lesson4
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 4
+#       - name: Lesson5
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 5
+#       - name: Lesson6
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 6
+#       - name: Lesson7
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 7
+#       - name: Lesson8
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 8
+#       - name: Lesson9
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 9
+#       - name: Lesson10
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 10
+#       - name: Lesson11
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 11
+#       - name: Lesson12
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 12
+#       - name: Lesson13
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 13
+#       - name: Lesson14
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 14
+#       - name: Lesson15
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 15
+#       - name: Lesson16
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 16
+#       - name: Lesson17
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 17
+#       - name: Lesson18
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 18
+#       - name: Lesson19
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 19
+#       - name: Lesson20
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 20
+#       - name: Lesson21
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 21
+#       - name: Lesson22
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 22
+#       - name: Lesson23
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 23
+#       - name: Lesson24
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 24
+#       - name: Lesson25
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 25
+#       - name: Lesson26
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 26
+#       - name: Lesson27
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 27
+#       - name: Lesson28
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 28
+#       - name: Lesson29
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 29
+#       - name: Lesson30
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 30
+#       - name: Lesson31
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 31
+#       - name: Lesson32
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 32
+#       - name: Lesson33
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 33
+#       - name: Lesson34
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 34
+#       - name: Lesson35
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 35
+#       - name: Lesson36
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 36
+#       - name: Lesson37
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 37
+#       - name: Lesson38
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 38
+#       - name: Lesson39
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 39
+#       - name: Lesson40
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 40
+#       - name: Lesson41
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 41
+#       - name: Lesson42
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 42
+#       - name: Lesson43
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 43
+#       - name: Lesson44
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 44
+#       - name: Lesson45
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 45
+#       - name: Lesson46
+#         completion_criteria:
+#           measure: reward
+#           behavior: RocketBehavior
+#           signal_smoothing: false
+#           min_lesson_length: 500
+#           threshold: 0.9
+#           require_reset: true
+#         value: 46
